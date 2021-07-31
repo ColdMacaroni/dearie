@@ -17,9 +17,9 @@ OBJ_FILES=$(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRC_FILES))
 
 all: $(OBJ_DIR) $(BIN_FILE)
 
+# $@ Means the name of the target
+# $^ means all requirements
 $(BIN_FILE): $(OBJ_FILES)
-	# $@ Means the name of the target
-	# $^ means all requirements
 	$(CC) $(CC_FLAGS) -o $@ $^ -I$(HDR_DIR) $(CC_LIBS)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
