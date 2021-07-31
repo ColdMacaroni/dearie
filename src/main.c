@@ -1,7 +1,7 @@
 #include "readconfig.h"
 
 int
-main(int argc, **argv)
+main(int argc, char **argv)
 {
     
 }

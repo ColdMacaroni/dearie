@@ -4,7 +4,7 @@
 
 config_t defaultConfig(void)
 {
-    char *entries_dir;
+    char entries_dir[BUFSIZ];
 
     // Try to get where to store the stuff
     char *home_dir = getenv("XDG_DATA_HOME");
