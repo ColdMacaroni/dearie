@@ -1,11 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 #include "readconfig.h"
+#include "program_info.h"
 
 config_t defaultConfig(void)
 {
     char entries_dir[BUFSIZ];
-    char entries_path[] = "dearie/entries";
+    char entries_path[] = PRGRM_NAME"/entries";
 
     // Try to get where to store the stuff
     char *home_dir = getenv("XDG_DATA_HOME");
