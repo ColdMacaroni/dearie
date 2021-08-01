@@ -15,10 +15,44 @@ main(int argc, char **argv)
 
     // Go through arguments and stuff
     {
-        char *current_arg;
+        char *current_opt = NULL;
+        bool more_args = true;
+
+        // Outer loop goes through each argument
         for (int arg = 0; arg < argc; arg++)
         {
-            if (argv[arg][0] == '-');
+            // If it's a flag
+            if (argv[arg][0] == '-' && more_args)
+            {
+                // Reset option
+                current_opt = NULL;
+
+                switch(argv[arg][1])
+                {
+                    // Config
+                    case 'c':
+                        current_opt = config_file;
+                        break;
+
+                    // --
+                    case '-':
+                        if (strlen(argv[arg]) == 2)
+                        {
+                            more_args = false;
+                        }
+                        else
+                        {
+                            // wordArgs function or something
+                        }
+                        break;
+                }
+            }
+            // -? [This part]
+            else if (current_opt != NULL)
+            {
+                strncpy(current_opt, argv[arg], BUFSIZ - 1);
+                current_opt[BUFSIZ - 1] = '\0';
+            }
         }
     }
 
